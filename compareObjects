@@ -1,0 +1,51 @@
+package com.trinadh.compareObj;
+
+public class Student implements  Comparable<Student>{
+    int rollno;
+    float marks;
+
+    public Student(int rollno, float marks) {
+        this.rollno = rollno;
+        this.marks = marks;
+    }
+
+
+    @Override
+    public String toString() {
+        return  marks + "";
+    }
+
+    @Override
+    public int compareTo(Student student) {
+       // return 0;
+
+        int diff = (int)(this.marks - student.marks);
+
+        return diff;
+    }
+}
+
+//================================================================
+package com.trinadh.compareObj;
+
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        Student trinadh = new Student(18,99.5f);
+        Student rakhi = new Student(19,55.5f);
+        Student chandu = new Student(20,99.2f);
+        Student shaida = new Student(21,22.43f);
+        Student anoop = new Student(22,29.2f);
+
+        Student[] list = {trinadh,rakhi,chandu,shaida,anoop};
+        System.out.println(Arrays.toString(list));
+        Arrays.sort(list);
+        System.out.println(Arrays.toString(list));
+
+        if(trinadh.compareTo(rakhi) < 0 ){
+            System.out.println("rakhi got high marks");
+        }
+
+    }
+}
